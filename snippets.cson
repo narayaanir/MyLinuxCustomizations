@@ -1,0 +1,73 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it here:
+# https://github.com/bevry/cson#what-is-cson
+'*':
+  'GPL license':
+    'prefix': 'gpl'
+    'body':"""
+/******************************************************************************
+Created by Anirudh S N. This file is part of ${1:PROJECT}.
+Copyright (c) 2015 Copyright Holder All Rights Reserved.
+
+${1:PROJECT} is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+${1:PROJECT} is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with ${1:PROJECT}.  If not, see <http://www.gnu.org/licenses/>.
+******************************************************************************/
+"""
+
+'.source.c, .source.cpp, .source.h, .source.objc\\+\\+':
+  '#ifndef … #define … #endif':
+    'prefix': 'ifn'
+    'body': '#ifndef ${1:NAME}\n#define ${1:NAME}\n\n\n\n#endif /*${1:NAME}*/\n'
+
+'.source.c, .source.cpp,.source.objc\\+\\+':
+  'class {}':
+    'prefix': 'class'
+    'body': 'class ${1:classname} {\nprivate:\npublic:\n\t// Constructor\n\t${1:classname} () {}\n\n\t// Destructor\n\tvirtual ~${1:classname} () {}\n};\n'
+
+
+'.source.c, .source.cpp, .source.objc\\+\\+':
+  'function comments':
+    'prefix': 'com'
+    'body': """
+    /******************************************************************************
+    * Name          : ${1:FunctionName}\n
+    * Description   : ${2:Description}\n
+    * Parameters    : ${3:None}\n
+    *******************************************************************************/
+    """
+
+'.source.c, .source.cpp':
+  'int main(int argc, char const* argv[])':
+    'prefix': 'main'
+    'body': 'int main(int argc, char const* argv[]) \n{\n\t$1\n\treturn 0;\n}'
+
+
+'.source.c, .source.cpp, .source.objc, .source.h, .source.objc\\+\\+':
+  'void function()':
+    'prefix': 'fun'
+    'body': '${1:void} ${2:name} ($3) \n{\n\t$4\n}'
