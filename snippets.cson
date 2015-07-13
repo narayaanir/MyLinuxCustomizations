@@ -71,3 +71,18 @@ along with ${1:PROJECT}.  If not, see <http://www.gnu.org/licenses/>.
   'void function()':
     'prefix': 'fun'
     'body': '${1:void} ${2:name} ($3) \n{\n\t$4\n}'
+
+'.source.c, .source.cpp, .source.objc, .source.h, .source.objc\\+\\+':
+  'std::shared_ptr':
+    'prefix': 'share'
+    'body': 'std::shared_ptr<${1:type}> ${2:name};'
+
+'.source.c, .source.cpp, .source.objc, .source.h, .source.objc\\+\\+':
+  'nullptr':
+    'prefix': 'null'
+    'body': 'nullptr'
+
+'.source.c, .source.cpp, .source.objc, .source.h, .source.objc\\+\\+':
+  'try...catch':
+    'prefix': 'try'
+    'body': 'try {\n\t${1:// code}\n} catch (std::exception& e) {\n\t${2:std::cout << e.what() << std::endl;\n}}'
